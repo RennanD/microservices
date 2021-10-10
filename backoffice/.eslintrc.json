@@ -22,6 +22,8 @@
       "no-use-before-define": "off",
       "class-methods-use-this": "off",
       "import/prefer-default-export": "off",
+      "no-useless-constructor":"off",
+      "camelcase": "off",
       "@typescript-eslint/no-use-before-define": [
         "error"
       ],
