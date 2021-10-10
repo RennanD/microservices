@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  database_backoffice: 
+    image: postgres
+    container_name: database_backoffice
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=backoffice_db
+    volumes:
+      - pgdata:/data/postgres
+  app:
+    build: .
+    container_name: backoffice_app
+    ports:
+      - 3333:3333
+    volumes:
+      - .:/usr/app
+    links:
+      - database_backoffice
+    depends_on:
+      - database_backoffice
+      
+volumes:
+  pgdata:
