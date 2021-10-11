@@ -1,10 +1,14 @@
-import { getRepository } from 'typeorm';
+import { getRepository, Repository } from 'typeorm';
 import { ICreateCompanyDTO } from '../../dtos/ICreateCompanyDTO';
 import { Company } from '../../entities/Company';
 import { ICompanyRepository, IFindParams } from '../IComponyRepository';
 
 export class CompanyRepositoryTypeOrm implements ICompanyRepository {
-  private typeOrmRepository = getRepository(Company);
+  private typeOrmRepository: Repository<Company>;
+
+  constructor() {
+    this.typeOrmRepository = getRepository(Company);
+  }
 
   async findAll(): Promise<Company[]> {
     return this.typeOrmRepository.find();

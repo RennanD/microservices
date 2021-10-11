@@ -7,6 +7,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+import { v4 as uuidV4 } from 'uuid';
+
 @Entity('companies')
 export class Company {
   @PrimaryColumn()
@@ -26,4 +28,10 @@ export class Company {
 
   @DeleteDateColumn()
   deleted_at!: Date;
+
+  constructor() {
+    if (!this.id) {
+      this.id = uuidV4();
+    }
+  }
 }
