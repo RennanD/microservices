@@ -3,8 +3,8 @@ import { Company } from '../entities/Company';
 import { ICreateCompanyDTO } from '../dtos/ICreateCompanyDTO';
 
 export interface IFindParams {
+  token: string;
   name?: string;
-  token?: string;
 }
 
 export interface ICompanyRepository {
