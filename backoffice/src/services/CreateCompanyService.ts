@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import { BadRequestError } from '../errors/BadRequestError';
 
 import { ICompanyRepository } from '../repositories/IComponyRepository';
 
@@ -13,7 +14,7 @@ export class CreateCompanyService {
     const existentCompany = await this.companiesRepository.findOne({ name });
 
     if (existentCompany) {
-      throw new Error('A empresa já está cadastrada no sistema');
+      throw new BadRequestError('A empresa já está cadastrada no sistema');
     }
 
     const token = crypto.randomBytes(12).toString('hex');
