@@ -1,29 +1,28 @@
 version: "3.9"
 
 services:
-  database_backoffice: 
+  database_microservices: 
     image: postgres
-    container_name: database_backoffice
+    container_name: database_microservices
     restart: always
     ports:
       - 5432:5432
     environment:
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=backoffice_db
     volumes:
       - pgdata:/data/postgres
-  app:
-    build: .
+  backoffice_app:
+    build: ./backoffice
     container_name: backoffice_app
     ports:
       - 3333:3333
     volumes:
-      - .:/usr/app
+      - .:/usr/backoffice_app
     links:
-      - database_backoffice
+      - database_microservices
     depends_on:
-      - database_backoffice
+      - database_microservices
       
 volumes:
   pgdata:

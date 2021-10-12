@@ -1,6 +1,6 @@
 FROM node
 
-WORKDIR /usr/app
+WORKDIR /usr/app/backoffice_app
 
 COPY package.json .
 
