@@ -2,7 +2,7 @@ import express, { response } from 'express';
 
 const app = express()
 
-app.get('/',(request, response) => {
+app.post('/',(request, response) => {
   response.json({
     ok: true
   })
