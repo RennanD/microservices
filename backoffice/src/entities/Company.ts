@@ -3,11 +3,14 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  JoinTable,
+  ManyToMany,
   PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 import { v4 as uuidV4 } from 'uuid';
+import { Module } from './Module';
 
 @Entity('companies')
 export class Company {
@@ -19,6 +22,14 @@ export class Company {
 
   @Column()
   token!: string;
+
+  @ManyToMany(() => Module, { eager: true })
+  @JoinTable({
+    name: 'companies_modules',
+    joinColumns: [{ name: 'company_id' }],
+    inverseJoinColumns: [{ name: 'module_id' }],
+  })
+  modules!: Module[];
 
   @CreateDateColumn()
   created_at!: Date;

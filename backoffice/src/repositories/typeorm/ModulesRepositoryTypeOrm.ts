@@ -14,6 +14,10 @@ export class ModulesRepositoryTypeOrm implements IModulesRepository {
     return this.typeOrmRepository.find();
   }
 
+  async findByIds(ids: string[]): Promise<Module[] | []> {
+    return this.typeOrmRepository.findByIds(ids);
+  }
+
   async findById(id: string): Promise<Module | undefined> {
     return this.typeOrmRepository.findOne(id);
   }

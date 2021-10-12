@@ -8,6 +8,7 @@ export interface IFindParams {
 
 export interface IModulesRepository {
   findAll(): Promise<Module[]>;
+  findByIds(ids: string[]): Promise<Module[] | []>;
   findById(id: string): Promise<Module | undefined>;
   findOne(params: IFindParams): Promise<Module | undefined>;
   cretae(module_data: ICreateModuleDTO): Promise<void>;
