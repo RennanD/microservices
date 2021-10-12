@@ -12,17 +12,14 @@ export class CreateCompaniesModules1633997260317 implements MigrationInterface {
         name: 'companies_modules',
         columns: [
           {
-            name: 'id',
-            type: 'varchar',
-            isPrimary: true,
-          },
-          {
             name: 'company_id',
             type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'module_id',
             type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'created_at',
@@ -69,8 +66,8 @@ export class CreateCompaniesModules1633997260317 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('companies_modules', 'company_id');
-    await queryRunner.dropForeignKey('companies_modules', 'module_id');
+    // await queryRunner.dropForeignKey('companies_modules', 'company_id');
+    // await queryRunner.dropForeignKey('companies_modules', 'module_id');
     await queryRunner.dropTable('companies_modules');
   }
 }

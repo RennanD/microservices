@@ -23,13 +23,13 @@ export class Company {
   @Column()
   token!: string;
 
-  @ManyToMany(() => Module, { eager: true })
+  @ManyToMany(() => Module)
   @JoinTable({
     name: 'companies_modules',
     joinColumns: [{ name: 'company_id' }],
     inverseJoinColumns: [{ name: 'module_id' }],
   })
-  modules!: Module[];
+  modules?: Module[];
 
   @CreateDateColumn()
   created_at!: Date;
