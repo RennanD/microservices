@@ -10,6 +10,7 @@ services:
     environment:
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=backoffice_db
     volumes:
       - pgdata:/data/postgres
 
@@ -52,6 +53,18 @@ services:
       - database_microservices
     depends_on:
       - database_microservices
+  
+  company_app:
+    build: ./company-app
+    container_name: company_app
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/usr/company_app
+    links:
+      - mongo_microservices
+    depends_on:
+      - mongo_microservices
       
 volumes:
   pgdata:

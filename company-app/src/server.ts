@@ -1,13 +1,13 @@
-import express, { response } from 'express';
+import express from "express";
 
-const app = express()
+const app = express();
 
-app.post('/',(request, response) => {
+app.post("/", (request, response) => {
   response.json({
-    ok: true
-  })  
-})
+    ok: true,
+  });
+});
 
-app.listen(process.env.PORT || 4000, () =>{
-  console.log('Company is running 🔥')
+app.listen(process.env.PORT || 4000, () => {
+  console.log("Company is running 🔥");
 });
