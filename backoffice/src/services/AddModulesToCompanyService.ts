@@ -24,8 +24,6 @@ export class AddModulesToCompanyService {
 
     findCompany.modules = existentModules;
 
-    console.log(findCompany);
-
     await this.companiesRespository.save(findCompany);
   }
 }
