@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import { companiesRoutes } from './companies.routes';
+import { modulesRoutes } from './modules.routes';
 
 const routes = Router();
 
@@ -11,5 +12,6 @@ routes.get('/', (request, response) => {
 });
 
 routes.use('/companies', companiesRoutes);
+routes.use('/modules', modulesRoutes);
 
 export { routes };
