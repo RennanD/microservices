@@ -13,6 +13,18 @@ services:
     volumes:
       - pgdata:/data/postgres
 
+  mongo_microservices:
+    image: mongo
+    container_name: mongo_microservices
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: docker
+      MONGO_INITDB_ROOT_PASSWORD: docker
+    volumes:
+      - mongo-volume:/data/db
+
   zookeeper_microservices:
     image: 'wurstmeister/zookeeper:latest'
     ports:
@@ -43,5 +55,7 @@ services:
       
 volumes:
   pgdata:
+    driver: local
+  mongo-volume: 
     driver: local
 
