@@ -23,7 +23,7 @@ export class Company {
   @Column()
   token!: string;
 
-  @ManyToMany(() => Module)
+  @ManyToMany(() => Module, module => module, { eager: true })
   @JoinTable({
     name: 'companies_modules',
     joinColumns: [{ name: 'company_id' }],

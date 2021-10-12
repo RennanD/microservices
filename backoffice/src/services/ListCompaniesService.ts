@@ -5,6 +5,13 @@ export class ListCompaniesService {
   constructor(private companiesRepository: ICompanyRepository) {}
 
   async run(): Promise<Company[]> {
-    return this.companiesRepository.findAll();
+    const findComapanies = await this.companiesRepository.findAll();
+
+    const parsedCompanies = findComapanies.map(company => ({
+      ...company,
+      modules: undefined,
+    }));
+
+    return parsedCompanies;
   }
 }

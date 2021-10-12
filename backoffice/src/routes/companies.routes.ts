@@ -8,6 +8,8 @@ const companyController = new CompanyController();
 const companyModuleController = new ComanyModuleController();
 
 companiesRoutes.get('/', companyController.list);
+companiesRoutes.get('/:company_id', companyController.show);
+
 companiesRoutes.post('/', companyController.create);
 companiesRoutes.post('/:company_id', companyModuleController.create);
 

@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { CompanyRepositoryTypeOrm } from '../repositories/typeorm/CompanyRepository';
 import { CreateCompanyService } from '../services/CreateCompanyService';
 import { ListCompaniesService } from '../services/ListCompaniesService';
+import { ShowCompaniesService } from '../services/ShowCompaniesService';
 
 export class CompanyController {
   async list(request: Request, response: Response): Promise<Response> {
@@ -13,6 +14,20 @@ export class CompanyController {
 
     return response.json({
       companies,
+    });
+  }
+
+  async show(request: Request, response: Response): Promise<Response> {
+    const { company_id } = request.params;
+
+    const companiesRepository = new CompanyRepositoryTypeOrm();
+
+    const showCompaniesService = new ShowCompaniesService(companiesRepository);
+
+    const company = await showCompaniesService.run(company_id);
+
+    return response.json({
+      company,
     });
   }
 
