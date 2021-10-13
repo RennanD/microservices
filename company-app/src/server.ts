@@ -2,6 +2,8 @@ import express from 'express';
 
 import './database';
 
+import { enabledModulesRoutes } from './routes';
+
 import { startConsumer } from './kafka';
 
 const app = express();
@@ -11,6 +13,8 @@ app.get('/', (request, response) => {
     ok: true,
   });
 });
+
+app.use('/modules', enabledModulesRoutes);
 
 async function run() {
   startConsumer().then(() => {

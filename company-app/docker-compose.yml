@@ -7,9 +7,9 @@ services:
     restart: always
     ports:
       - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: docker
-      MONGO_INITDB_ROOT_PASSWORD: docker
+    # environment:
+      # MONGO_INITDB_ROOT_USERNAME: docker
+      # MONGO_INITDB_ROOT_PASSWORD: docker
     volumes:
       - mongo-volume:/data/db
 
