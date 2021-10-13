@@ -8,12 +8,15 @@ export class ComanyModuleController {
     const { modules_ids } = request.body;
     const { company_id } = request.params;
 
+    const { producer } = request;
+
     const companiesRepository = new CompanyRepositoryTypeOrm();
     const modulesRepository = new ModulesRepositoryTypeOrm();
 
     const addModulesToCompanyService = new AddModulesToCompanyService(
       companiesRepository,
       modulesRepository,
+      producer,
     );
 
     await addModulesToCompanyService.run({

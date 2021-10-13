@@ -29,7 +29,7 @@ export async function startConsumer(): Promise<void> {
       try {
         switch (topic as Topic) {
           case 'company-app.enable-modules':
-            console.log(message);
+            console.log(message.value?.toString());
             break;
           default:
             break;
