@@ -17,26 +17,6 @@ export class CompanyController {
     });
   }
 
-  async showToken(request: Request, response: Response): Promise<Response> {
-    const { token } = request.params;
-
-    const companiesRepository = new CompanyRepositoryTypeOrm();
-
-    const company = await companiesRepository.findOne({ token });
-
-    // console.log(company);
-
-    if (!company) {
-      return response.status(400).json({
-        error: 'Você não tem permissão para acessar',
-      });
-    }
-
-    return response.json({
-      modules: company.modules,
-    });
-  }
-
   async show(request: Request, response: Response): Promise<Response> {
     const { company_id } = request.params;
 

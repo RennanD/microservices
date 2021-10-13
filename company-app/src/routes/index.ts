@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import axios from 'axios';
 import { EnabledModulesRepositoryMongoose } from '../repositories/mongoose/EnabledModulesRepositoryMongoose';
 
 const enabledModulesRoutes = Router();
