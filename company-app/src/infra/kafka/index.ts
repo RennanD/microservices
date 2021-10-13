@@ -2,7 +2,7 @@ import { Kafka, KafkaConfig } from 'kafkajs';
 
 const config: KafkaConfig = {
   clientId: 'company-app-id',
-  brokers: ['kafka:9092'],
+  brokers: ['localhost:9092'],
 };
 
 const kafka = new Kafka(config);

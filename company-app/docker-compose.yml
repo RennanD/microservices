@@ -28,6 +28,7 @@ services:
   kafka:
     image: 'bitnami/kafka:2'
     container_name: kafka_microservises
+    hostname: kafka
     ports:
       - '9092:9092'
     volumes:
@@ -41,6 +42,22 @@ services:
       - zookeeper
     networks:
       - app-net
+
+  # company_app:
+  #   build: .
+  #   container_name: company_app
+  #   ports:
+  #     - 4000:4000
+  #   volumes:
+  #     - .:/usr/company_app
+  #   links:
+  #     - mongo_microservices
+  #     - kafka
+  #   depends_on:
+  #     - mongo_microservices
+  #     - kafka
+  #   networks:
+  #     - app-net
 
 networks:
   app-net:
