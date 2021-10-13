@@ -4,6 +4,12 @@ import { startConsumer } from './infra/kafka';
 
 const app = express();
 
+app.get('/', (request, response) => {
+  response.json({
+    ok: true,
+  });
+});
+
 async function run() {
   startConsumer().then(() => {
     console.log('Kafka is runing ⚡️');
@@ -15,9 +21,3 @@ async function run() {
 }
 
 run().catch(console.error);
-
-// app.post('/', (request, response) => {
-//   response.json({
-//     ok: true,
-//   });
-// });
