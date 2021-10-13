@@ -1,6 +1,8 @@
 import express from 'express';
 
-import { startConsumer } from './infra/kafka';
+import './database';
+
+import { startConsumer } from './kafka';
 
 const app = express();
 
