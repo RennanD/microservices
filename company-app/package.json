@@ -9,7 +9,8 @@
     "seed:admin": "tsnd src/database/seeds/admin.ts"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "kafkajs": "^1.15.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
