@@ -1,6 +1,6 @@
 # Microservices with Kafka and Node.js
 
-Using [Apach Kafka](https://kafka.apache.org/) to comunicate two services.
+Using [Apache Kafka](https://kafka.apache.org/) to comunicate two services.
 
 ## Cloning thi project
 
