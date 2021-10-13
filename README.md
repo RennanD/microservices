@@ -50,5 +50,5 @@ in microservices root path run:
 cd company-app
 yarn install
 docker-compose up -d
-yarn 
+yarn dev:server
 ```
