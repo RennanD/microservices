@@ -11,6 +11,6 @@ export interface IModulesRepository {
   findByIds(ids: string[]): Promise<Module[] | []>;
   findById(id: string): Promise<Module | undefined>;
   findOne(params: IFindParams): Promise<Module | undefined>;
-  cretae(module_data: ICreateModuleDTO): Promise<void>;
+  create(module_data: ICreateModuleDTO): Promise<void>;
   save(module: Module): Promise<void>;
 }

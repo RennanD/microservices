@@ -24,7 +24,7 @@ export class CompanyRepositoryTypeOrm implements ICompanyRepository {
     });
   }
 
-  async cretae(company_data: ICreateCompanyDTO): Promise<void> {
+  async create(company_data: ICreateCompanyDTO): Promise<void> {
     const { name, token } = company_data;
 
     const company = this.typeOrmRepository.create({

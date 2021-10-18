@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import { companiesRoutes } from './companies.routes';
 import { modulesRoutes } from './modules.routes';
+import { rolesRoutes } from './roles.routes';
 
 const routes = Router();
 
@@ -13,5 +14,6 @@ routes.get('/', (request, response) => {
 
 routes.use('/companies', companiesRoutes);
 routes.use('/modules', modulesRoutes);
+routes.use('/roles', rolesRoutes);
 
 export { routes };

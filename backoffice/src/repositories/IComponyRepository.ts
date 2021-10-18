@@ -11,6 +11,6 @@ export interface ICompanyRepository {
   findAll(): Promise<Company[]>;
   findById(id: string): Promise<Company | undefined>;
   findOne(params: IFindParams): Promise<Company | undefined>;
-  cretae(company_data: ICreateCompanyDTO): Promise<void>;
+  create(company_data: ICreateCompanyDTO): Promise<void>;
   save(company: Company): Promise<void>;
 }

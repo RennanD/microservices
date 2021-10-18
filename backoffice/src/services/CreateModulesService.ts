@@ -16,7 +16,7 @@ export class CreateModulesService {
       throw new BadRequestError('O módulo já existe no sistema');
     }
 
-    await this.modulesRepository.cretae({
+    await this.modulesRepository.create({
       name,
       slug,
     });

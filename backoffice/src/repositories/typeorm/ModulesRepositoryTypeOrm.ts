@@ -28,7 +28,7 @@ export class ModulesRepositoryTypeOrm implements IModulesRepository {
     });
   }
 
-  async cretae(module_data: ICreateModuleDTO): Promise<void> {
+  async create(module_data: ICreateModuleDTO): Promise<void> {
     const { name, slug } = module_data;
 
     const module = this.typeOrmRepository.create({

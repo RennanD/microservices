@@ -19,7 +19,7 @@ export class CreateCompanyService {
 
     const token = crypto.randomBytes(12).toString('hex');
 
-    await this.companiesRepository.cretae({
+    await this.companiesRepository.create({
       name,
       token,
     });

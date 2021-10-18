@@ -15,7 +15,7 @@ async function create() {
 
   console.log(query);
 
-  connection.query(query);
+  await connection.query(query);
 
   await connection.close();
 }
