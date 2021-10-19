@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import { AuthError } from '../errors/AuthError';
 
 import { BadRequestError } from '../errors/BadRequestError';
 
@@ -9,7 +10,7 @@ export async function handleException(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _next: NextFunction,
 ): Promise<Response> {
-  if (error instanceof BadRequestError) {
+  if (error instanceof BadRequestError || error instanceof AuthError) {
     return response
       .status(error.status_code)
       .json({ error: error.message, type_error: error.type_error });
